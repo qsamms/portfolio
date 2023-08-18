@@ -1,15 +1,22 @@
 import { makeStyles } from "@mui/styles";
 import ParticleBackground from "./ParticleBackground";
-import Particles from "react-particles";
+import NavBar from "./NavBar";
 
 const useStyles = makeStyles({
   App: {
-    textAlign: "center",
+    position: "relative",
+    overflow: "hidden",
   },
 });
 
 export default function App(): JSX.Element {
   const classes = useStyles();
 
-  return <ParticleBackground />;
+  return (
+    <div className={classes.App}>
+      <ParticleBackground />
+      <NavBar />
+      {/* <MainText /> */}
+    </div>
+  );
 }

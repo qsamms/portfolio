@@ -1,5 +1,6 @@
 import { makeStyles } from "@mui/styles";
 import { Button } from "@mui/material";
+import QLogo from "./QLogo";
 // import clsx from "clsx";
 
 const useStyles = makeStyles({
@@ -9,10 +10,8 @@ const useStyles = makeStyles({
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    background: "#5A5A5A",
+    background: "#d3d3d3",
     padding: "10px 80px",
-    boxShadow: "0 5px 15px black",
-    borderBottom: "1px solid #4d4d4d",
   },
   navBarItems: {
     display: "flex",
@@ -23,21 +22,6 @@ const useStyles = makeStyles({
     padding: "0 20px",
     listStyle: "none",
   },
-  navBarLink: {
-    "&:hover": {
-      opacity: 1,
-    },
-
-    "&:before": {
-      transition: "300ms",
-      height: "5px",
-      content: "",
-      position: "absolute",
-      backgroundColor: "#5A5A5A",
-      width: "0%",
-      bottom: "10px",
-    },
-  },
 });
 
 export default function NavBar(): JSX.Element {
@@ -46,19 +30,13 @@ export default function NavBar(): JSX.Element {
   return (
     <div className={classes.navBar}>
       <nav>
-        <Button>Quinn Samms</Button>
+        <QLogo big={false} width={100} height={100} />
       </nav>
 
       <ul className={classes.navBarItems}>
-        <li className={classes.navBarItem}>
-          <Button>About Me</Button>
-        </li>
-        <li className={classes.navBarItem}>
-          <Button>Projects</Button>
-        </li>
-        <li className={classes.navBarItem}>
-          <Button>Contact</Button>
-        </li>
+        <li className={classes.navBarItem}>About Me</li>
+        <li className={classes.navBarItem}>Projects</li>
+        <li className={classes.navBarItem}>Contact</li>
       </ul>
     </div>
   );

@@ -1,11 +1,20 @@
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
-  background: {
-    zIndex: -1,
+  welcome: {
+    position: "relative",
+    fontSize: "75px",
+    fontFamily: "Lato",
+    display: "flex",
+    margin: "auto",
+    letterSpacing: "5px",
+    justifyContet: "center",
+    alignItems: "center",
   },
 });
 
 export default function MainText(): JSX.Element {
-  return null;
+  const classes = useStyles();
+
+  return <div className={classes.welcome}>Quinn Samms</div>;
 }

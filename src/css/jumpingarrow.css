@@ -1,0 +1,33 @@
+@keyframes jumpInfinite {
+  0% {
+    margin-top: 0;
+  }
+  50% {
+    margin-top: 20px;
+  }
+  100% {
+    margin-top: 0;
+  }
+}
+
+.down-arrow {
+  position: absolute;
+  top: calc(73vh);
+  left: calc(40% - 10px);
+  width: 0;
+  height: 30px;
+  transform: translate(-50%, -50%);
+}
+
+.down-arrow:after {
+  content: " ";
+  position: absolute;
+  top: 12px;
+  width: 16px;
+  height: 16px;
+  transform: rotateZ(45deg);
+}
+
+.down-arrow {
+  animation: jumpInfinite 1.5s infinite;
+}

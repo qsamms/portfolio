@@ -1,6 +1,7 @@
 import { makeStyles } from "@mui/styles";
 import { Button } from "@mui/material";
 import QLogo from "./QLogo";
+import IconButton from "@mui/material/IconButton/IconButton";
 // import clsx from "clsx";
 
 const useStyles = makeStyles({
@@ -30,13 +31,21 @@ export default function NavBar(): JSX.Element {
   return (
     <div className={classes.navBar}>
       <nav>
-        <QLogo big={false} width={100} height={100} />
+        <IconButton>
+          <QLogo isDetailsOpen={false} big={false} width={100} height={100} />
+        </IconButton>
       </nav>
 
       <ul className={classes.navBarItems}>
-        <li className={classes.navBarItem}>About Me</li>
-        <li className={classes.navBarItem}>Projects</li>
-        <li className={classes.navBarItem}>Contact</li>
+        <li className={classes.navBarItem}>
+          <Button style={{ color: "black" }}>About Me</Button>
+        </li>
+        <li className={classes.navBarItem}>
+          <Button style={{ color: "black" }}>Projects</Button>
+        </li>
+        <li className={classes.navBarItem}>
+          <Button style={{ color: "black" }}>Contact</Button>
+        </li>
       </ul>
     </div>
   );

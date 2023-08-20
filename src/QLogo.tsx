@@ -9,10 +9,12 @@ const useStyles = makeStyles({
 });
 
 export default function QLogo({
+  isDetailsOpen,
   big,
   width,
   height,
 }: {
+  isDetailsOpen: boolean;
   big: boolean;
   width: number;
   height: number;

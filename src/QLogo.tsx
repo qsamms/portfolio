@@ -3,32 +3,25 @@ import logo from "./images/qlogo.png";
 import biggerlogo from "./images/BiggerQLogo.png";
 
 const useStyles = makeStyles({
-  image: {
-    color: "#ADD8E6",
+  qLogoBig: {
+    height: "100%",
+    width: "90%",
+    justifyContent: "center",
+    alignItems: "center",
+
+    "@media (min-width: 2000px)": {
+      width: "80%",
+    },
+    // border: "1px solid black",
+  },
+  qLogoSmall: {
+    width: "100px",
+    height: "100px",
   },
 });
 
-export default function QLogo({
-  isDetailsOpen,
-  big,
-  width,
-  height,
-}: {
-  isDetailsOpen: boolean;
-  big: boolean;
-  width: number;
-  height: number;
-}): JSX.Element {
+export default function QLogo({ big }: { big: boolean }): JSX.Element {
   const classes = useStyles();
-  if (big)
-    return (
-      <img
-        className={classes.image}
-        src={biggerlogo}
-        alt="Qlogobig"
-        width={width}
-        height={height}
-      />
-    );
-  else return <img src={logo} alt="Qlogo" width={width} height={height} />;
+  if (big) return <img className={classes.qLogoBig} src={biggerlogo} alt="Qlogobig" />;
+  else return <img className={classes.qLogoSmall} src={logo} alt="Qlogo" />;
 }

@@ -7,6 +7,10 @@ const useStyles = makeStyles({
     position: "absolute",
     top: "35vh",
     left: "1vw",
+
+    "@media (max-width: 1050px)": {
+      display: "none",
+    },
   },
   listItem: {
     listStyle: "none",

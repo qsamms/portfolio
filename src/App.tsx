@@ -14,31 +14,40 @@ const useStyles = makeStyles({
     height: "100vh",
     width: "100vw",
     backgroundColor: "#d3d3d3",
+    overflow: "hidden",
   },
-  welcomeMessage: {
+  homePage: {
+    width: "60vw",
+    height: "60vh",
     position: "absolute",
     display: "flex",
     top: "50%",
-    left: "50%",
-    transform: "translate(-40%, -50%)",
+    left: "55%",
+    transform: "translate(-50%, -50%)",
     zIndex: 1,
-    justifyContent: "space-between",
+    // border: "1px solid black",
+    justifyContent: "center",
+    alignItems: "center",
   },
   welcomeText: {
-    position: "relative",
+    margin: "auto",
     minWidth: "500px",
+    // border: "1px solid black",
   },
   qLogo: {
-    position: "absolute",
-    paddingLeft: "10px",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-20%, -50%)",
+    position: "relative",
+    top: "100px",
+    margin: "auto",
+    // border: "1px solid black",
   },
   detailsContainer: {
-    minWidth: "750px",
-    minHeight: "750px",
-    paddingLeft: "30px",
+    display: "flex",
+    minWidth: "60%",
+    minHeight: "100%",
+    paddingLeft: "20px",
+    //border: "1px solid black",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
 
@@ -52,15 +61,13 @@ export default function App(): JSX.Element {
     <div className={classes.App}>
       <NavBar />
       <SocialsList />
-      <div className={classes.welcomeMessage}>
+      <div className={classes.homePage}>
         <div className={classes.welcomeText}>
           <MainText isDetailsOpen={isDetailsOpen} toggleDetailView={toggleDetailView} />
         </div>
         <div className={classes.detailsContainer}>
           <AboutMe isDetailsOpen={isDetailsOpen} toggleDetailsOpen={toggleDetailView} />
-          <div className={classes.qLogo}>
-            <QLogo isDetailsOpen={isDetailsOpen} big={true} width={700} height={700} />
-          </div>
+          <QLogo big={true} />
         </div>
         <JumpingArrowDown />
       </div>

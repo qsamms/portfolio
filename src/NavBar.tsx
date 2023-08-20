@@ -32,7 +32,7 @@ export default function NavBar(): JSX.Element {
     <div className={classes.navBar}>
       <nav>
         <IconButton>
-          <QLogo isDetailsOpen={false} big={false} width={100} height={100} />
+          <QLogo big={false} />
         </IconButton>
       </nav>
 

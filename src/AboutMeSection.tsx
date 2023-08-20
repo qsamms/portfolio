@@ -8,17 +8,18 @@ import { Close } from "@mui/icons-material";
 
 const useStyles = makeStyles({
   main: {
-    position: "relative",
-    top: "40px",
+    position: "absolute",
+    top: "20px",
     display: "block",
     backgroundColor: "black",
     borderRadius: "10px",
-    height: "85%",
-    width: "90%",
+    height: "100%",
+    width: "60%",
     fontFamiy: "Lato",
-    zIndex: 10,
+    zIndex: 99,
     overflow: "wrap",
     boxShadow: "5px 10px 8px #888888",
+    opacity: "0.9",
   },
   textContainer: {
     width: "85%",
@@ -40,10 +41,11 @@ const useStyles = makeStyles({
   closeIcon: {
     position: "relative",
     top: "10px",
-    left: "620px",
-  },
-  closeButton: {
-    opacity: 0,
+    left: "90%",
+
+    "@media (min-width: 2000px)": {
+      left: "93%",
+    },
   },
 });
 

@@ -7,6 +7,7 @@ import AboutMe from "./AboutMeSection";
 import QLogo from "./QLogo";
 import JumpingArrowDown from "./JumpingArrowDown";
 import SocialsList from "./SocialsList";
+import MyTechnologies from "./MyTechnologies";
 
 const useStyles = makeStyles({
   App: {
@@ -14,14 +15,14 @@ const useStyles = makeStyles({
     height: "100vh",
     width: "100vw",
     backgroundColor: "#d3d3d3",
-    overflow: "hidden",
+    overflowX: "hidden",
   },
   homePage: {
     width: "60vw",
     height: "60vh",
-    position: "absolute",
+    position: "relative",
     display: "flex",
-    top: "50%",
+    top: "30%",
     left: "55%",
     transform: "translate(-50%, -50%)",
     zIndex: 1,
@@ -79,6 +80,7 @@ export default function App(): JSX.Element {
         </div>
         <JumpingArrowDown />
       </div>
+      <MyTechnologies/>
     </div>
   );
 }

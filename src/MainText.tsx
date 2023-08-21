@@ -17,16 +17,29 @@ const useStyles = makeStyles({
     fontSize: "75px",
     letterSpacing: "5px",
     paddingBottom: "30px",
+
+    "@media (max-width: 1000px)": {
+      fontSize: "50px", 
+      letterSpacing: "2px",
+    },
   },
   desc: {
     paddingLeft: "5px",
     letterSpacing: "1px",
     fontSize: "30px",
+
+    "@media (max-width: 1000px)": {
+     fontSize: "20px", 
+    },
   },
   buttonContainer: {
     position: "relative",
     paddingTop: "25px",
     right: "5px",
+
+    "@media (max-width: 700px)": {
+      display: "none", 
+     },
   },
 
   button: {

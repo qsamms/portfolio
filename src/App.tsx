@@ -32,7 +32,11 @@ const useStyles = makeStyles({
   welcomeText: {
     margin: "auto",
     minWidth: "500px",
-    // border: "1px solid black",
+
+    "@media (max-width: 1000px)": {
+      minWidth: "320px", 
+    },
+     //border: "1px solid black",
   },
   qLogo: {
     position: "relative",
@@ -48,6 +52,10 @@ const useStyles = makeStyles({
     //border: "1px solid black",
     alignItems: "center",
     justifyContent: "center",
+
+    "@media (max-width: 500px)": {
+      display: "none",  
+     },
   },
 });
 

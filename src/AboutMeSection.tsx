@@ -17,9 +17,9 @@ const useStyles = makeStyles({
     width: "60%",
     fontFamiy: "Lato",
     zIndex: 99,
-    overflow: "wrap",
     boxShadow: "5px 10px 8px #888888",
     opacity: "0.9",
+    overflow: "scroll", 
   },
   textContainer: {
     width: "85%",
@@ -45,6 +45,10 @@ const useStyles = makeStyles({
 
     "@media (min-width: 2000px)": {
       left: "93%",
+    },
+
+    "@media (max-width: 1000px)": {
+      left: "85%",
     },
   },
 });

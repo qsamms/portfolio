@@ -12,11 +12,15 @@
 
 .down-arrow {
   position: absolute;
-  top: calc(73vh);
+  top: calc(80vh);
   left: calc(40% - 10px);
   width: 0;
   height: 30px;
   transform: translate(-50%, -50%);
+
+  @media (max-height: 1000px) {
+    top: calc(70vh);
+  }
 }
 
 .down-arrow:after {

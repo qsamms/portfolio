@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { makeStyles } from "@mui/styles";
 import ParticleBackground from "./ParticleBackground";
 import NavBar from "./NavBar";
@@ -26,51 +26,66 @@ const useStyles = makeStyles({
     left: "55%",
     transform: "translate(-50%, -50%)",
     zIndex: 1,
-    // border: "1px solid black",
     justifyContent: "center",
     alignItems: "center",
   },
   welcomeText: {
     margin: "auto",
-    minWidth: "500px",
+    minWidth: "570px",
 
     "@media (max-width: 1000px)": {
-      minWidth: "320px", 
+      minWidth: "320px",
     },
-     //border: "1px solid black",
+    // border: "1px solid black",
   },
   qLogo: {
     position: "relative",
     top: "100px",
     margin: "auto",
-    // border: "1px solid black",
+    border: "1px solid black",
   },
   detailsContainer: {
     display: "flex",
     minWidth: "60%",
     minHeight: "100%",
     paddingLeft: "20px",
-    //border: "1px solid black",
+    // border: "1px solid black",
     alignItems: "center",
     justifyContent: "center",
 
     "@media (max-width: 500px)": {
-      display: "none",  
-     },
+      display: "none",
+    },
   },
 });
 
 export default function App(): JSX.Element {
   const classes = useStyles();
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
+  const techRef = useRef(null);
+  const aboutmeRef = useRef(null);
 
   const toggleDetailView = () => setIsDetailsOpen(!isDetailsOpen);
 
+  const scrollTechnologiesIntoView = () => {
+    if (techRef.current) {
+      techRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "nearest",
+      });
+    }
+  };
+
+  const aboutMeClicked = () => {
+    setIsDetailsOpen(!isDetailsOpen);
+  };
+
   return (
     <div className={classes.App}>
-      <NavBar />
+      <NavBar aboutMeClicked={aboutMeClicked} />
       <SocialsList />
-      <div className={classes.homePage}>
+      <div ref={aboutmeRef} className={classes.homePage}>
         <div className={classes.welcomeText}>
           <MainText isDetailsOpen={isDetailsOpen} toggleDetailView={toggleDetailView} />
         </div>
@@ -78,9 +93,11 @@ export default function App(): JSX.Element {
           <AboutMe isDetailsOpen={isDetailsOpen} toggleDetailsOpen={toggleDetailView} />
           <QLogo big={true} />
         </div>
-        <JumpingArrowDown />
+        <JumpingArrowDown scrollToElement={scrollTechnologiesIntoView} />
       </div>
-      <MyTechnologies/>
+      <div ref={techRef}>
+        <MyTechnologies />
+      </div>
     </div>
   );
 }

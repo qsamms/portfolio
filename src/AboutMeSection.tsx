@@ -19,7 +19,8 @@ const useStyles = makeStyles({
     zIndex: 99,
     boxShadow: "5px 10px 8px #888888",
     opacity: "0.9",
-    overflow: "scroll", 
+    overflowY: "scroll",
+    overflowX: "hidden",
   },
   textContainer: {
     width: "85%",

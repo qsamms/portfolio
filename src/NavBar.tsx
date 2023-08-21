@@ -25,7 +25,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function NavBar(): JSX.Element {
+export default function NavBar({ aboutMeClicked }: { aboutMeClicked: () => void }): JSX.Element {
   const classes = useStyles();
 
   return (
@@ -38,7 +38,9 @@ export default function NavBar(): JSX.Element {
 
       <ul className={classes.navBarItems}>
         <li className={classes.navBarItem}>
-          <Button style={{ color: "black" }}>About Me</Button>
+          <Button onClick={aboutMeClicked} style={{ color: "black" }}>
+            About Me
+          </Button>
         </li>
         <li className={classes.navBarItem}>
           <Button style={{ color: "black" }}>Projects</Button>

@@ -3,7 +3,7 @@ import { makeStyles } from "@mui/styles";
 const useStyles = makeStyles({
   main: {
     position: "relative",
-    fontFamily: "Lato",
+    fontFamily: "Verdana",
     display: "block",
     justifyContent: "center",
     alignItems: "center",
@@ -15,11 +15,11 @@ const useStyles = makeStyles({
   },
   myTitle: {
     fontSize: "75px",
-    letterSpacing: "5px",
+    letterSpacing: "3px",
     paddingBottom: "30px",
 
     "@media (max-width: 1000px)": {
-      fontSize: "50px", 
+      fontSize: "50px",
       letterSpacing: "2px",
     },
   },
@@ -29,7 +29,7 @@ const useStyles = makeStyles({
     fontSize: "30px",
 
     "@media (max-width: 1000px)": {
-     fontSize: "20px", 
+      fontSize: "20px",
     },
   },
   buttonContainer: {
@@ -38,8 +38,8 @@ const useStyles = makeStyles({
     right: "5px",
 
     "@media (max-width: 700px)": {
-      display: "none", 
-     },
+      display: "none",
+    },
   },
 
   button: {
@@ -49,12 +49,12 @@ const useStyles = makeStyles({
     textAlign: "center",
     transition: "0.5s",
     backgroundSize: "200% auto",
-    color: "white",
+    color: "black",
     boxShadow: "5px 10px 8px #888888",
     borderRadius: "5px",
     display: "block",
     fontSize: "20px",
-    fontFamily: "Lato",
+    fontFamily: "Verdana",
     letterSpacing: "1px",
     minWidth: "185px",
 

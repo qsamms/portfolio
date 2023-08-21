@@ -6,9 +6,8 @@ const useStyles = makeStyles({
   socials: {
     position: "absolute",
     top: "35vh",
-    left: "1vw",
 
-    "@media (max-width: 1050px)": {
+    "@media (max-width: 1150px)": {
       display: "none",
     },
   },
@@ -18,6 +17,15 @@ const useStyles = makeStyles({
 
     "&:hover": {
       opacity: 1,
+    },
+  },
+  icon: {
+    width: "80px",
+    height: "80px",
+
+    "@media (max-width: 1250px)": {
+      width: "60px",
+      height: "60px",
     },
   },
 });
@@ -30,12 +38,18 @@ export default function SocialsList({}: {}): JSX.Element {
       <ul>
         <li className={classes.listItem}>
           <a href="https://github.com/qsamms" target="_blank">
-            <img src={github} alt="github" width="80" height="80"></img>
+            <img className={classes.icon} src={github} alt="github" width="80" height="80"></img>
           </a>
         </li>
         <li className={classes.listItem}>
           <a href="https://linkedin.com/in/quinnsamms" target="_blank">
-            <img src={linkedin} alt="linkedin" width="80" height="80"></img>
+            <img
+              className={classes.icon}
+              src={linkedin}
+              alt="linkedin"
+              width="80"
+              height="80"
+            ></img>
           </a>
         </li>
       </ul>

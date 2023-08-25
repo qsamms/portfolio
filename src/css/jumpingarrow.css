@@ -10,17 +10,22 @@
   }
 }
 
+.container {
+  position: relative;
+  top: 100px;
+
+  @media (max-width: 800px) {
+    display: none;
+  }
+}
+
 .down-arrow {
   position: absolute;
-  top: calc(80vh);
-  left: calc(40% - 10px);
+  top: 90%;
+  left: calc(50% - 10px);
   width: 0;
   height: 30px;
   transform: translate(-50%, -50%);
-
-  @media (max-height: 1000px) {
-    top: calc(70vh);
-  }
 }
 
 .down-arrow:after {

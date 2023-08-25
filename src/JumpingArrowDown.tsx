@@ -13,10 +13,12 @@ export default function JumpingArrowDown({
   const classes = useStyles();
 
   return (
-    <div className="down-arrow">
-      <IconButton onClick={scrollToElement}>
-        <ArrowDownwardIcon fontSize="large" />
-      </IconButton>
+    <div className="container">
+      <div className="down-arrow">
+        <IconButton onClick={scrollToElement}>
+          <ArrowDownwardIcon fontSize="large" />
+        </IconButton>
+      </div>
     </div>
   );
 }

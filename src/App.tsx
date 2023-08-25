@@ -8,6 +8,8 @@ import QLogo from "./QLogo";
 import JumpingArrowDown from "./JumpingArrowDown";
 import SocialsList from "./SocialsList";
 import MyTechnologies from "./MyTechnologies";
+import Projects from "./Projects";
+import Contact from "./Contact";
 
 const useStyles = makeStyles({
   App: {
@@ -16,6 +18,8 @@ const useStyles = makeStyles({
     width: "100vw",
     backgroundColor: "#d3d3d3",
     overflowX: "hidden",
+    display: "flex",
+    flexDirection: "column",
   },
   homePage: {
     width: "60vw",
@@ -64,6 +68,8 @@ export default function App(): JSX.Element {
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
   const techRef = useRef(null);
   const aboutmeRef = useRef(null);
+  const projectsRef = useRef(null);
+  const contactRef = useRef(null);
 
   const toggleDetailView = () => setIsDetailsOpen(!isDetailsOpen);
 
@@ -71,8 +77,25 @@ export default function App(): JSX.Element {
     if (techRef.current) {
       techRef.current.scrollIntoView({
         behavior: "smooth",
-        block: "start",
-        inline: "nearest",
+        block: "center",
+      });
+    }
+  };
+
+  const scrollProjectsIntoView = () => {
+    if (projectsRef.current) {
+      projectsRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
+  };
+
+  const scrollContactIntoView = () => {
+    if (contactRef.current) {
+      contactRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
       });
     }
   };
@@ -83,7 +106,11 @@ export default function App(): JSX.Element {
 
   return (
     <div className={classes.App}>
-      <NavBar aboutMeClicked={aboutMeClicked} />
+      <NavBar
+        aboutMeClicked={aboutMeClicked}
+        projectsClicked={scrollProjectsIntoView}
+        contactClicked={scrollContactIntoView}
+      />
       <SocialsList />
       <div ref={aboutmeRef} className={classes.homePage}>
         <div className={classes.welcomeText}>
@@ -93,11 +120,12 @@ export default function App(): JSX.Element {
           <AboutMe isDetailsOpen={isDetailsOpen} toggleDetailsOpen={toggleDetailView} />
           <QLogo big={true} />
         </div>
-        <JumpingArrowDown scrollToElement={scrollTechnologiesIntoView} />
       </div>
-      <div ref={techRef}>
-        <MyTechnologies />
-      </div>
+      <JumpingArrowDown scrollToElement={scrollTechnologiesIntoView} />
+
+      <MyTechnologies forwardedRef={techRef} />
+      <Projects forwardedRef={projectsRef} />
+      <Contact forwardedRef={contactRef} />
     </div>
   );
 }

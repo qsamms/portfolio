@@ -1,6 +1,9 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { makeStyles } from "@mui/styles";
 import emailjs from "@emailjs/browser";
+import { CircularProgress } from "@mui/material";
+import DoneIcon from "@mui/icons-material/Done";
+import ErrorIcon from "@mui/icons-material/Error";
 
 const useStyles = makeStyles({
   wrapper: {
@@ -77,21 +80,40 @@ const useStyles = makeStyles({
     borderRadius: "10px",
     border: 0,
   },
+  statusIcons: {
+    position: "relative",
+    bottom: "45px",
+    left: "150px",
+  },
 });
 
 export default function MyTechnologies({ forwardedRef }): JSX.Element {
   const classes = useStyles();
   const form = useRef();
+  const [isLoadingVisible, setIsLoadingVisible] = useState(false);
+  const [isSentVisible, setIsSentVisible] = useState(false);
+  const [isErrorVisible, setIsErrorVisible] = useState(false);
 
   const sendEmail = (e) => {
+    setIsLoadingVisible(true);
     e.preventDefault();
 
     emailjs.sendForm("service_z8ywe08", "template_75fw3id", form.current, "WQO8F9BmHEXzHclfN").then(
       (result) => {
-        console.log(result.text);
+        console.log(result.text, result.status);
+        setIsLoadingVisible(false);
+        setIsSentVisible(true);
+        setTimeout(() => {
+          setIsSentVisible(false);
+        }, 1000);
       },
       (error) => {
-        console.log(error.text);
+        console.log(error.text, error.status);
+        setIsLoadingVisible(false);
+        setIsErrorVisible(true);
+        setTimeout(() => {
+          setIsErrorVisible(false);
+        }, 1000);
       }
     );
   };
@@ -120,6 +142,11 @@ export default function MyTechnologies({ forwardedRef }): JSX.Element {
           <label className={classes.labels}>Message *</label>
           <textarea className={classes.textArea} name="message" placeholder="Say Hello!" required />
           <input className={classes.sendButton} type="submit" value="Send" />
+          <div className={classes.statusIcons}>
+            {isLoadingVisible && <CircularProgress style={{ color: "white" }} />}
+            {isSentVisible && <DoneIcon style={{ color: "green" }} fontSize="large" />}
+            {isErrorVisible && <ErrorIcon style={{ color: "red" }} fontSize="large" />}
+          </div>
         </form>
       </div>
     </div>

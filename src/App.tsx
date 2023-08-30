@@ -1,6 +1,5 @@
 import { useState, useRef } from "react";
 import { makeStyles } from "@mui/styles";
-import ParticleBackground from "./ParticleBackground";
 import NavBar from "./NavBar";
 import MainText from "./HomePageText";
 import AboutMe from "./AboutMe";

@@ -1,10 +1,7 @@
 import { makeStyles } from "@mui/styles";
-import QLogo from "./QLogo";
 import Stack from "@mui/material/Stack/Stack";
-import Transition from "react-transition-group/Transition";
 import CloseIcon from "@mui/icons-material/Close";
-import { Icon, IconButton } from "@mui/material";
-import { Close } from "@mui/icons-material";
+import { IconButton } from "@mui/material";
 
 const useStyles = makeStyles({
   main: {
@@ -21,7 +18,12 @@ const useStyles = makeStyles({
     overflowY: "scroll",
     overflowX: "hidden",
     transition: "height 1s ease",
-    scrollbarWidth: "none",
+    scrollbarWidth: "none", //hide on firefox
+    msOverflowStyle: "none", //hide on IE, Edge
+    "&::-webkit-scrollbar": {
+      //hide on chrome
+      display: "none",
+    },
   },
   open: {
     height: "100%",

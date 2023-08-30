@@ -1,3 +1,4 @@
+import { useRef, useState } from "react";
 import { makeStyles } from "@mui/styles";
 import python from "./images/python.png";
 import cpp from "./images/cpp.png";
@@ -31,7 +32,21 @@ const useStyles = makeStyles({
     paddingTop: "20px",
     display: "flex",
     maxWidth: "40%",
-    overflowX: "scroll",
+    overflowX: "auto",
+    cursor: "grab",
+    userSelect: "none",
+    whiteSpace: "nowrap",
+    scrollbarWidth: "none", //hide on firefox
+    msOverflowStyle: "none", //hide on IE, Edge
+
+    "&:active": {
+      cursor: "grabbing",
+    },
+
+    "&::-webkit-scrollbar": {
+      //hide on chrome
+      display: "none",
+    },
   },
   title: {
     position: "relative",
@@ -59,6 +74,33 @@ const useStyles = makeStyles({
 
 export default function MyTechnologies({ forwardedRef }): JSX.Element {
   const classes = useStyles();
+  const scrollRef = useRef(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+
+  const handleMouseDown = (e) => {
+    setIsDragging(true);
+    setStartX(e.pageX - scrollRef.current.offsetLeft);
+    setScrollLeft(scrollRef.current.scrollLeft);
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+
+    const x = e.pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    scrollRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+  };
 
   return (
     <div>
@@ -67,7 +109,14 @@ export default function MyTechnologies({ forwardedRef }): JSX.Element {
           <div>My Technologies</div>
         </div>
         <div className={classes.rowContent}>
-          <div className={classes.scrollableList}>
+          <div
+            className={classes.scrollableList}
+            ref={scrollRef}
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseLeave}
+          >
             <img className={classes.icon} src={python}></img>
             <img className={classes.icon} src={cpp}></img>
             <img className={classes.icon} src={java}></img>

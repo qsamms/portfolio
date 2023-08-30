@@ -11,8 +11,9 @@
 }
 
 .container {
-  position: relative;
-  top: 100px;
+  position: absolute;
+  top: 90vh;
+  left: 50vw;
 
   @media (max-width: 800px) {
     display: none;

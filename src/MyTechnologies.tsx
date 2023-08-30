@@ -11,8 +11,8 @@ const useStyles = makeStyles({
   main: {
     width: "100%",
     height: "270px",
-    position: "relative",
-    top: "35vh",
+    position: "absolute",
+    top: "calc(100vh + 50px)",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",

@@ -13,14 +13,21 @@ const useStyles = makeStyles({
     display: "block",
     backgroundColor: "black",
     borderRadius: "10px",
-    height: "100%",
     width: "60%",
-    fontFamiy: "Lato",
+    fontFamiy: "Verdana",
     zIndex: 99,
     boxShadow: "5px 10px 8px #888888",
     opacity: "0.9",
     overflowY: "scroll",
     overflowX: "hidden",
+    transition: "height 1s ease",
+    scrollbarWidth: "none",
+  },
+  open: {
+    height: "100%",
+  },
+  closed: {
+    height: "0%",
   },
   textContainer: {
     width: "85%",
@@ -28,16 +35,24 @@ const useStyles = makeStyles({
     top: "10px",
     left: "30px",
   },
+  "@keyframes unroll": {
+    "0%": {
+      height: 0,
+    },
+    "100%": {
+      height: "100%",
+    },
+  },
   header: {
     fontSize: "30px",
     paddingBottom: "20px",
     letterSpacing: "2px",
     color: "white",
-    fontFamiy: "Lato",
+    fontFamiy: "Verdana",
   },
   text: {
     color: "white",
-    fontFamiy: "Lato",
+    fontFamiy: "Verdana",
   },
   closeIcon: {
     position: "relative",
@@ -63,25 +78,33 @@ export default function AboutMe({
 }): JSX.Element {
   const classes = useStyles();
 
-  if (isDetailsOpen)
-    return (
-      <div className={classes.main}>
-        <div className={classes.closeIcon}>
-          <IconButton onClick={toggleDetailsOpen}>
-            <CloseIcon style={{ color: "white" }} />
-          </IconButton>
-        </div>
-        <div className={classes.textContainer}>
-          <Stack spacing={2}>
-            <div className={classes.header}>About Me</div>
-            <div className={classes.text}>
-              Hi! I'm Quinn, a 20-year-old Computer Science & Engineering student at Santa Clara
-              University.
-            </div>
-            <div className={classes.text}>I like doing this this or that</div>
-            <div className={classes.text}>When i'm not doing this or that, I'm doing this... </div>
-          </Stack>
-        </div>
+  return (
+    <div className={`${classes.main} ${isDetailsOpen ? classes.open : classes.closed}`}>
+      <div className={classes.closeIcon}>
+        <IconButton onClick={toggleDetailsOpen}>
+          <CloseIcon style={{ color: "white" }} />
+        </IconButton>
       </div>
-    );
+      <div className={classes.textContainer}>
+        <div className={classes.header}>About Me</div>
+        <Stack spacing={3}>
+          <div className={classes.text}>
+            Hi! I'm Quinn, a 21-year-old Computer Science & Engineering student at Santa Clara
+            University.
+          </div>
+          <div className={classes.text}>
+            I'm a motivated, focused, and high-energy person with a passion for growing and learning
+            in life.{" "}
+          </div>
+          <div className={classes.text}>
+            I love to build projects (like this site) to build skills in my spare time.{" "}
+          </div>
+          <div className={classes.text}>
+            When I'm not coding, I love to play video games, exercise, and find fun problems to
+            solve. Check out some of my work below!{" "}
+          </div>
+        </Stack>
+      </div>
+    </div>
+  );
 }

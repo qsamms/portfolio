@@ -14,14 +14,14 @@ import typing from "./images/typing.png";
 
 const useStyles = makeStyles({
   main: {
-    position: "relative",
-    top: "50vh",
+    position: "absolute",
+    top: "calc(100vh + 320px)",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
     width: "100%",
-    marginBottom: "80px",
+    marginTop: "150px",
   },
   header: {
     fontFamily: "Verdana",
@@ -91,7 +91,7 @@ export default function App({ forwardedRef }): JSX.Element {
           <img className={classes.laptop} src={laptop} alt="laptop"></img>
           <div className={classes.typing}>
             <a href="http://54.219.164.0:8000/home/" target="_blank">
-              <img src={typing} alt="typing site" width="385" height="255" />
+              <img src={typing} alt="typing site" width="385" height="245" />
             </a>
           </div>
           <div className={classes.projectHeader}>Typing Site</div>

@@ -39,9 +39,7 @@ export default function NavBar({
   return (
     <div className={classes.navBar}>
       <nav>
-        <IconButton>
-          <QLogo big={false} />
-        </IconButton>
+        <QLogo big={false} />
       </nav>
 
       <ul className={classes.navBarItems}>

@@ -43,26 +43,26 @@ const useStyles = makeStyles({
   },
 
   button: {
-    backgroundImage: "linear-gradient(to right, #000000 0%, #e74c3c  51%, #000000  100%)",
-    margin: "10px",
-    padding: "15px 45px",
-    textAlign: "center",
-    transition: "0.5s",
-    backgroundSize: "200% auto",
-    color: "black",
-    boxShadow: "5px 10px 8px #888888",
-    borderRadius: "5px",
-    display: "block",
-    fontSize: "20px",
+    position: "relative",
+    left: "10px",
+    top: "10px",
+    display: "inline-block",
+    outline: 0,
+    border: 0,
+    cursor: "pointer",
+    borderRadius: "8px",
+    padding: "14px 24px 16px",
+    fontSize: "18px",
     fontFamily: "Verdana",
-    letterSpacing: "1px",
-    minWidth: "185px",
+    fontWeight: 700,
+    lineHeight: 1,
+    transition: "transform 200ms, background 200ms",
+    background: "transparent",
+    color: "#000000",
+    boxShadow: "0 0 0 3px #000000 inset",
 
     "&:hover": {
-      backgroundPosition: "right center" /* change the direction of the change here */,
-      color: "#fff",
-      textDecoration: "none",
-      cursor: "pointer",
+      transform: "translateY(-5px)",
     },
   },
 });
@@ -83,7 +83,7 @@ export default function MainText({
         <div className={classes.desc}>Full Stack Engineer</div>
         <div className={classes.buttonContainer}>
           <button type="button" className={classes.button} onClick={toggleDetailView}>
-            {isDetailsOpen ? "Close" : "About me"}
+            About Me
           </button>
         </div>
       </div>

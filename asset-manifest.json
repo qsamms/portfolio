@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d7799a39.css",
+    "main.js": "/static/js/main.a3bd9617.js",
+    "static/js/787.1ed0c42c.chunk.js": "/static/js/787.1ed0c42c.chunk.js",
+    "static/media/postgresql.png": "/static/media/postgresql.1b904635aedb7c19150d.png",
+    "static/media/react.png": "/static/media/react.81ed438b18e24116794d.png",
+    "static/media/cpp.png": "/static/media/cpp.64f637357bce0ccc8384.png",
+    "static/media/sqllite.png": "/static/media/sqllite.4fe75c0829d18d78b9fd.png",
+    "static/media/linkedin.png": "/static/media/linkedin.ab7644f18965cdeea483.png",
+    "static/media/BiggerQLogo.png": "/static/media/BiggerQLogo.7b72645f26f3af308eae.png",
+    "static/media/javascript.png": "/static/media/javascript.062825dbceed44567e91.png",
+    "static/media/typing.png": "/static/media/typing.29b740ec898eb59a9da3.png",
+    "static/media/django.png": "/static/media/django.4c399895f677cd3bfbc8.png",
+    "static/media/github.png": "/static/media/github.5994b25b696bbc93b5d8.png",
+    "static/media/java.png": "/static/media/java.6c64373d3b7415758078.png",
+    "static/media/mysql.png": "/static/media/mysql.17ec01314179e9a8ab58.png",
+    "static/media/qlogo.png": "/static/media/qlogo.a0b1d278a6ba57874f84.png",
+    "index.html": "/index.html",
+    "main.d7799a39.css.map": "/static/css/main.d7799a39.css.map",
+    "main.a3bd9617.js.map": "/static/js/main.a3bd9617.js.map",
+    "787.1ed0c42c.chunk.js.map": "/static/js/787.1ed0c42c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d7799a39.css",
+    "static/js/main.a3bd9617.js"
+  ]
+}

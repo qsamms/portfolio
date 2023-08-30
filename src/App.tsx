@@ -125,7 +125,7 @@ export default function App(): JSX.Element {
 
       <MyTechnologies forwardedRef={techRef} />
       <Projects forwardedRef={projectsRef} />
-      <Contact forwardedRef={contactRef} projectsRef={projectsRef} />
+      <Contact forwardedRef={contactRef} />
     </div>
   );
 }

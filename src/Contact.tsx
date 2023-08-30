@@ -7,14 +7,13 @@ const useStyles = makeStyles({
     display: "flex",
     position: "absolute",
     width: "100%",
-    top: "calc(100vh + 970px)",
+    top: "calc(100vh + 320px + 1050px)",
   },
   main: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     position: "relative",
-    top: "50vh",
     height: "600px",
     width: "100%",
     background: "black",
@@ -80,10 +79,9 @@ const useStyles = makeStyles({
   },
 });
 
-export default function MyTechnologies({ forwardedRef, projectsRef }): JSX.Element {
+export default function MyTechnologies({ forwardedRef }): JSX.Element {
   const classes = useStyles();
   const form = useRef();
-  const [spacing, setSpacing] = useState(50);
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -99,7 +97,7 @@ export default function MyTechnologies({ forwardedRef, projectsRef }): JSX.Eleme
   };
 
   return (
-    <div className={classes.wrapper} style={{ marginTop: spacing }}>
+    <div className={classes.wrapper}>
       <div className={classes.main} ref={forwardedRef}>
         <div className={classes.header}>Contact Me</div>
         <form className={classes.form} ref={form} onSubmit={sendEmail}>

@@ -96,10 +96,11 @@ export default function App({ forwardedRef }): JSX.Element {
           </div>
           <div className={classes.projectHeader}>Typing Site</div>
           <div className={classes.projectDescription}>
-            My own take on popular typing websites like typeracer and monkeytype that I've used
-            since I was young. Built with a Django BE and a vanilla Javascript, HTML, CSS FE. The
-            Site features user authentication and login, and a profile page where users can view
-            their previous typing statistics.{" "}
+            My own take on popular typing websites like TypeRacer and Monkeytype that I've always
+            loved to use since I was young. Built with a Django BE and a vanilla Javascript, HTML,
+            CSS FE. The Site features user authentication and login, and a profile page where users
+            can view their previous typing statistics. Deployed to an AWS EC2 instance and available
+            for use on the public internet.{" "}
           </div>
           <div className={classes.technologyList}>
             <img className={classes.icon} src={python}></img>

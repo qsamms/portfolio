@@ -10,7 +10,7 @@ const useStyles = makeStyles({
     display: "flex",
     position: "absolute",
     width: "100%",
-    top: "calc(100vh + 320px + 1050px)",
+    top: "calc(100vh + 320px + 1600px)",
   },
   main: {
     display: "flex",
@@ -29,7 +29,7 @@ const useStyles = makeStyles({
     paddingTop: "50px",
     paddingBottom: "10px",
     borderBottom: "1px solid white",
-    marginBottom: "10px"
+    marginBottom: "10px",
   },
   labels: {
     color: "white",

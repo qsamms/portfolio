@@ -9,8 +9,11 @@ import postgres from "./images/postgresql.png";
 import mysql from "./images/mysql.png";
 import react from "./images/react.png";
 import javascript from "./images/javascript.png";
+import typescript from "./images/typescript.png";
 import sqllite from "./images/sqllite.png";
 import typing from "./images/typing.png";
+import mysite from "./images/mysite.png";
+import { IconButton } from "@mui/material";
 
 const useStyles = makeStyles({
   main: {
@@ -29,16 +32,23 @@ const useStyles = makeStyles({
     letterSpacing: "1px",
     margin: "auto",
     paddingBottom: "70px",
-    display: "flex",
   },
   projectRow: {
     display: "flex",
+    alignItems: "center",
+  },
+  projectRowNotFirst: {
+    marginTop: "100px",
+    display: "flex",
+    alignItems: "center",
+    //border: "1px solid black",
   },
   project: {
+    minWidth: "600px",
     maxWidth: "600px",
     padding: "0px 40px",
     margin: "0px 10px",
-    // border: "1px solid black",
+    //border: "1px solid black",
     borderRadius: "10px",
     display: "flex",
     flexDirection: "column",
@@ -56,10 +66,17 @@ const useStyles = makeStyles({
     paddingBottom: "30px",
     lineHeight: 1.6,
   },
-  technologyList: { display: "flex" },
+  technologyList: {
+    display: "flex",
+  },
   icon: {
     padding: "0px 15px",
     width: "60px",
+    height: "60px",
+  },
+  reactIcon: {
+    padding: "0px 15px",
+    width: "70px",
     height: "60px",
   },
   laptop: {
@@ -76,11 +93,17 @@ const useStyles = makeStyles({
   },
   typing: {
     position: "absolute",
-    top: "160px",
+    top: "150px",
+  },
+  mysite: {
+    position: "relative",
+    bottom: "320px",
+    left: "50px",
+    height: "0px", // this is weird but it is fixed this way
   },
 });
 
-export default function App({ forwardedRef }): JSX.Element {
+export default function App({ forwardedRef, scrollHomeIntoView }): JSX.Element {
   const classes = useStyles();
 
   return (
@@ -91,7 +114,7 @@ export default function App({ forwardedRef }): JSX.Element {
           <img className={classes.laptop} src={laptop} alt="laptop"></img>
           <div className={classes.typing}>
             <a href="http://54.219.164.0:8000/home/" target="_blank">
-              <img src={typing} alt="typing site" width="385" height="245" />
+              <img src={typing} alt="typing site" width="385" height="250" />
             </a>
           </div>
           <div className={classes.projectHeader}>Typing Site</div>
@@ -127,6 +150,26 @@ export default function App({ forwardedRef }): JSX.Element {
           <div className={classes.technologyList}>
             <img className={classes.icon} src={java}></img>
             <img className={classes.icon} src={mysql}></img>
+          </div>
+        </div>
+      </div>
+      <div className={classes.projectRowNotFirst}>
+        <div className={classes.project}>
+          <div>
+            <img className={classes.laptop} src={laptop} alt="laptop"></img>
+            <div className={classes.mysite}>
+              <IconButton disableRipple onClick={scrollHomeIntoView}>
+                <img src={mysite} alt="typing site" width="385" height="250" />
+              </IconButton>
+            </div>
+          </div>
+          <div className={classes.projectHeader}>Portfolio Site</div>
+          <div className={classes.projectDescription}>
+            My portfolio site I built with react to display my work.
+          </div>
+          <div className={classes.technologyList}>
+            <img className={classes.reactIcon} src={react}></img>
+            <img className={classes.icon} src={typescript}></img>
           </div>
         </div>
       </div>

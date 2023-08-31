@@ -69,6 +69,7 @@ export default function App(): JSX.Element {
   const aboutmeRef = useRef(null);
   const projectsRef = useRef(null);
   const contactRef = useRef(null);
+  const homeRef = useRef(null);
 
   const toggleDetailView = () => setIsDetailsOpen(!isDetailsOpen);
 
@@ -85,7 +86,7 @@ export default function App(): JSX.Element {
     if (projectsRef.current) {
       projectsRef.current.scrollIntoView({
         behavior: "smooth",
-        block: "center",
+        block: "start",
       });
     }
   };
@@ -99,6 +100,15 @@ export default function App(): JSX.Element {
     }
   };
 
+  const scrollHomeIntoView = () => {
+    if (homeRef.current) {
+      homeRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
+  };
+
   const aboutMeClicked = () => {
     setIsDetailsOpen(!isDetailsOpen);
   };
@@ -106,6 +116,7 @@ export default function App(): JSX.Element {
   return (
     <div className={classes.App}>
       <NavBar
+        homeRef={homeRef}
         aboutMeClicked={aboutMeClicked}
         projectsClicked={scrollProjectsIntoView}
         contactClicked={scrollContactIntoView}
@@ -123,7 +134,7 @@ export default function App(): JSX.Element {
       <JumpingArrowDown scrollToElement={scrollTechnologiesIntoView} />
 
       <MyTechnologies forwardedRef={techRef} />
-      <Projects forwardedRef={projectsRef} />
+      <Projects scrollHomeIntoView={scrollHomeIntoView} forwardedRef={projectsRef} />
       <Contact forwardedRef={contactRef} />
     </div>
   );

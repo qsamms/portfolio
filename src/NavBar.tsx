@@ -29,15 +29,17 @@ export default function NavBar({
   aboutMeClicked,
   projectsClicked,
   contactClicked,
+  homeRef,
 }: {
   aboutMeClicked: () => void;
   projectsClicked: () => void;
   contactClicked: () => void;
+  homeRef: any;
 }): JSX.Element {
   const classes = useStyles();
 
   return (
-    <div className={classes.navBar}>
+    <div className={classes.navBar} ref={homeRef}>
       <nav>
         <QLogo big={false} />
       </nav>

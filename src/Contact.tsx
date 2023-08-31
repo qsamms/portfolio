@@ -27,7 +27,9 @@ const useStyles = makeStyles({
     fontSize: "30px",
     letterSpacing: "1px",
     paddingTop: "50px",
-    paddingBottom: "20px",
+    paddingBottom: "10px",
+    borderBottom: "1px solid white",
+    marginBottom: "10px"
   },
   labels: {
     color: "white",

@@ -6,7 +6,7 @@ import { IconButton } from "@mui/material";
 const useStyles = makeStyles({
   main: {
     position: "absolute",
-    top: "20px",
+    top: "0px", 
     display: "block",
     backgroundColor: "black",
     borderRadius: "10px",
@@ -34,7 +34,6 @@ const useStyles = makeStyles({
   textContainer: {
     width: "85%",
     position: "relative",
-    top: "10px",
     left: "30px",
   },
   "@keyframes unroll": {
@@ -47,10 +46,12 @@ const useStyles = makeStyles({
   },
   header: {
     fontSize: "30px",
-    paddingBottom: "20px",
+    paddingBottom: "10px",
+    marginBottom: "20px", 
     letterSpacing: "2px",
     color: "white",
     fontFamiy: "Verdana",
+    borderBottom: "1px solid white"
   },
   text: {
     color: "white",
@@ -95,15 +96,17 @@ export default function AboutMe({
             University.
           </div>
           <div className={classes.text}>
-            I'm a motivated, focused, and high-energy person with a passion for growing and learning
-            in life.{" "}
+            I'm a motivated, focused, and high-energy person with a passion for learning.
           </div>
           <div className={classes.text}>
             I love to build projects (like this site) to build skills in my spare time.{" "}
           </div>
           <div className={classes.text}>
-            When I'm not coding, I love to play video games, exercise, and find fun problems to
+            When I'm not coding, I like to play video games, exercise, and find fun problems to
             solve. Check out some of my work below!{" "}
+          </div>
+          <div className={classes.text}>
+            Feel free to reach out via the contact form. I'd love to meet you!
           </div>
         </Stack>
       </div>

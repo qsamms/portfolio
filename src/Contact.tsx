@@ -96,6 +96,16 @@ export default function MyTechnologies({ forwardedRef }): JSX.Element {
   const [isSentVisible, setIsSentVisible] = useState(false);
   const [isErrorVisible, setIsErrorVisible] = useState(false);
 
+  const clearInputs = () => {
+    const inputs = document.getElementsByTagName("input");
+    const textarea = (document.getElementById("textarea") as HTMLInputElement);
+
+    for (let i = 0; i < inputs.length; i++) {
+        inputs[i].value = '';
+    }
+    textarea.value = '';
+}
+
   const sendEmail = (e) => {
     setIsLoadingVisible(true);
     e.preventDefault();
@@ -105,6 +115,7 @@ export default function MyTechnologies({ forwardedRef }): JSX.Element {
         console.log(result.text, result.status);
         setIsLoadingVisible(false);
         setIsSentVisible(true);
+        clearInputs();
         setTimeout(() => {
           setIsSentVisible(false);
         }, 1000);
@@ -127,6 +138,7 @@ export default function MyTechnologies({ forwardedRef }): JSX.Element {
         <form className={classes.form} ref={form} onSubmit={sendEmail}>
           <label className={classes.labels}>Name *</label>
           <input
+            id="input1"
             className={classes.input}
             type="text"
             name="user_name"
@@ -135,6 +147,7 @@ export default function MyTechnologies({ forwardedRef }): JSX.Element {
           />
           <label className={classes.labels}>Email *</label>
           <input
+            id="input2"
             className={classes.input}
             type="email"
             name="user_email"
@@ -142,7 +155,7 @@ export default function MyTechnologies({ forwardedRef }): JSX.Element {
             required
           />
           <label className={classes.labels}>Message *</label>
-          <textarea className={classes.textArea} name="message" placeholder="Say Hello!" required />
+          <textarea id="textarea" className={classes.textArea} name="message" placeholder="Say Hello!" required />
           <input className={classes.sendButton} type="submit" value="Send" />
           <div className={classes.statusIcons}>
             {isLoadingVisible && <CircularProgress style={{ color: "white" }} />}
